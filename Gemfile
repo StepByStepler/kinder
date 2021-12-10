@@ -24,10 +24,10 @@ gem "stimulus-rails", ">= 0.4.0"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder", "~> 2.7"
 
-gem "sprockets", "4.0.2"
-gem "sprockets-rails", "3.4.0"
+gem "sprockets", "~> 4.0.2"
+gem "sprockets-rails", "~> 3.4.0"
 
-
+gem "bcrypt", "~> 3.1.16"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
