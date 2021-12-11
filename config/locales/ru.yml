@@ -1,0 +1,36 @@
+ru:
+  session:
+    login:
+      title: Войти
+      email: Почта
+      password: Пароль
+      wrong_password: Вы ввели неверный логин или пароль
+      not_confirmed: Пожалуйста, подтвердите свою почту, чтобы продолжить
+      not_registered: Нет аккаунта?
+      register_now: Зарегистрируйтесь сейчас
+    register:
+      title: Зарегистрироваться
+      name: Имя
+      password_confirmation: Подтверждение пароля
+      error: Произошла ошибка при регистрации, пожалуйста, сообщите в техподдержку
+      confirm:
+        subject: Подтверждение регистрации
+        greeting: Здравствуйте, %{name},
+        text: Спасибо за регистрацию! Чтобы ее подтвердить, нажмите на ссылку ниже
+        success: Ваша почта подтверждена! Войдите в аккаунт, чтобы продолжить
+        error: Пользователь не найден
+  language:
+    current: Русский
+    change: Сменить язык
+    ru: Русский
+    en: Английский
+  activerecord:
+    attributes:
+      user:
+        password_confirmation: Подтвержденный пароль
+    errors:
+      models:
+        user:
+          attributes:
+            password_confirmation:
+              confirmation: не совпадает с паролем

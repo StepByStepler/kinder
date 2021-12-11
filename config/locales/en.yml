@@ -30,4 +30,28 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  session:
+    login:
+      title: Sign in
+      email: E-mail
+      password: Password
+      wrong_password: You input wrong login or password
+      not_confirmed: Please confirm your email address to continue
+      not_registered: Not registered?
+      register_now: Signup now
+    register:
+      title: Sign up
+      name: Name
+      password_confirmation: Password confirmation
+      error: Something went wrong, please report this to technical support
+      confirm:
+        subject: Registration confirmation
+        greeting: Hi %{name},
+        text: Thanks for registering! To confirm your registration click the URL below
+        success: Your email is confirmed! Please log in to continue
+        error: User not found
+  language:
+    current: English
+    change: Change language
+    ru: Russian
+    en: English
