@@ -1,0 +1,5 @@
+<p><%= t('session.register.confirm.greeting', name: @user.name) %></p>
+<p><%= t('session.register.confirm.text') %></p>
+
+<% confirm_url = "#{sessions_confirm_url}?token=#{@user.confirmation_token}" %>
+<a href="<%= confirm_url %>"><%= confirm_url %></a>
