@@ -28,6 +28,13 @@ gem "sprockets", "~> 4.0.2"
 gem "sprockets-rails", "~> 3.4.0"
 
 gem "bcrypt", "~> 3.1.16"
+
+gem "izitoast", "~> 1.4.0"
+
+gem "webpacker", "~> 5.4.3"
+
+gem "jquery", "~> 0.0.1"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
