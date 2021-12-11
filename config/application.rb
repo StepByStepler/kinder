@@ -34,5 +34,9 @@ module Kinder
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    I18n.available_locales = [:en, :ru]
+    config.i18n.default_locale = :ru
+    config.action_mailer.default_url_options = { host: 'localhost:3000' }
   end
 end
