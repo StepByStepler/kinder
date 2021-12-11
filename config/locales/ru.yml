@@ -34,3 +34,9 @@ ru:
           attributes:
             password_confirmation:
               confirmation: не совпадает с паролем
+  dating:
+    profile: Профиль
+    chats: Чаты
+    image: Изображение профиля
+    name: Имя
+    save_changes: Сохранить изменения

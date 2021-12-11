@@ -55,3 +55,9 @@ en:
     change: Change language
     ru: Russian
     en: English
+  dating:
+    profile: Profile
+    chats: Chats
+    image: Profile image
+    name: Name
+    save_changes: Сохранить изменения
