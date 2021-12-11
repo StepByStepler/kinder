@@ -6,13 +6,6 @@ require_relative '../mailers/confirmation_mailer'
 class SessionsController < ApplicationController
   def welcome; end
 
-  def respond(status, message)
-    respond_to do |format|
-      format.all { render html: message, status: status }
-    end
-  end
-  private :respond
-
   def login
     user = User.authenticate(params[:email], params[:password])
     if user.nil?

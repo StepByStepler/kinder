@@ -21,4 +21,10 @@ class ApplicationController < ActionController::Base
   def authenticate
     redirect_to root_path if current_user.nil? || !current_user.email_confirmed
   end
+
+  def respond(status, message)
+    respond_to do |format|
+      format.all { render html: message, status: status }
+    end
+  end
 end
