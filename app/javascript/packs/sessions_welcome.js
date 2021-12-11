@@ -1,7 +1,3 @@
-window.iziToast = function iziToast() {
-    return require('izitoast')
-}
-
 $(document).ready(() => {
     $("#login").click(() => {
         $("#login-container").css("display", "block");
