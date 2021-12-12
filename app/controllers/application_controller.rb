@@ -27,4 +27,10 @@ class ApplicationController < ActionController::Base
       format.all { render html: message, status: status }
     end
   end
+
+  def respond_json(status, json)
+    respond_to do |format|
+      format.all { render json: json, status: status }
+    end
+  end
 end
