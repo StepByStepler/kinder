@@ -31,6 +31,9 @@
 
 en:
   session:
+    welcome:
+      title: Find new acquaintances!
+      subtitle: Chat and meet people from all over the world
     login:
       title: Sign in
       email: E-mail

@@ -1,5 +1,8 @@
 ru:
   session:
+    welcome:
+      title: Найдите новых знакомых!
+      subtitle: Общайтесь и встречайтесь с людьми со всего мира
     login:
       title: Войти
       email: Почта
