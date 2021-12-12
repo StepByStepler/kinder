@@ -63,6 +63,6 @@ en:
     name: Name
     age: Age
     description: Description
-    save_changes: Сохранить изменения
+    save_changes: Save changes
     like: Like
     dislike: Dislike
