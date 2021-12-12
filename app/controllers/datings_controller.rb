@@ -5,8 +5,7 @@ class DatingsController < ApplicationController
   before_action :authenticate
   skip_before_action :verify_authenticity_token, only: [:update]
 
-  def view
-  end
+  def view; end
 
   def update
     params = update_params
@@ -16,22 +15,22 @@ class DatingsController < ApplicationController
       return
     end
 
-    puts params
-    p params
     update_profile_pic params[:profile_pic] if params.key?(:profile_pic)
     respond :ok, ''
   end
 
   def update_profile_pic(pic_data)
-    puts 'Updating profile pic'
-    puts pic_data.original_filename
     image_path = File.join('public', 'images', 'profiles', "#{@current_user.id}.png")
     File.open(image_path, 'wb') { |f| f.write pic_data.read }
-    # File.write image_path, pic_data.read
   end
 
   def update_params
-    puts params
     params.permit(:name, :profile_pic)
+  end
+
+  def random_profile
+    user = User.where('id != ? AND email_confirmed = 1', @current_user.id).order(Arel.sql('RANDOM()')).first
+    json = ActiveSupport::JSON.encode user
+    respond :ok, json.to_s
   end
 end
