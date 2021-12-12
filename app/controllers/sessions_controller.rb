@@ -4,7 +4,9 @@ require_relative '../mailers/confirmation_mailer'
 
 # Controller which handles user logging in and registering
 class SessionsController < ApplicationController
-  def welcome; end
+  def welcome
+    redirect_to datings_view_path if current_user
+  end
 
   def login
     user = User.authenticate(params[:email], params[:password])
