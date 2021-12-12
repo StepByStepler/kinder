@@ -3,17 +3,13 @@
 <%= #noinspection RailsParamDefResolve
     stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' %>
 <%= stylesheet_link_tag 'sessions_welcome' %>
-<%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
-<%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js' %>
-<%= javascript_pack_tag 'application' %>
 <%= javascript_pack_tag 'sessions_welcome' %>
 
-<div class="top-navbar">
-  <img src="/images/logo.png" alt="Logo">
-  <a class="a-register" href="#"><%= t('session.register.title') %></a>
-  <a id="login" href="#"><%= t('session.login.title') %></a>
-  <a id="change-lang" href="#"><%= t('language.current') %></a>
-</div>
+<% @panel_links = [
+  { class: 'a-register', text: t('session.register.title') },
+  { id: 'login', text: t('session.login.title') }
+] %>
+<%= render 'layouts/header' %>
 
 <div class="main">
   <h1>Найдите новых знакомых!</h1>
@@ -63,20 +59,6 @@
         <%= password_field_tag(:password_confirmation) %>
       </div>
       <button type="submit"><%= t('session.register.title') %></button>
-    <% end %>
-  </div>
-</div>
-
-<div class="fullscreen-container" id="lang-container">
-  <div class="popup-window">
-    <label for="show" class="close-btn fas fa-times"></label>
-    <h3><%= t('language.change') %></h3>
-    <% I18n.available_locales.each do |locale| %>
-      <% if I18n.locale == locale %>
-        <p><%= t("language.#{locale}") %></p>
-      <% else %>
-        <a href="#" data-locale="<%= locale %>"><%= t("language.#{locale}") %></a>
-      <% end %>
     <% end %>
   </div>
 </div>

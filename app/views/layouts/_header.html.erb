@@ -1,0 +1,31 @@
+<%= stylesheet_link_tag 'header' %>
+<%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
+<%= javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js' %>
+<%= javascript_pack_tag 'application' %>
+<%= javascript_pack_tag 'header' %>
+
+<div class="top-navbar">
+  <img src="/images/logo.png" alt="Logo">
+  <% @panel_links.each do |link| %>
+    <a
+      <%= link.key?(:class) ? "class=#{link[:class]} " : "" %>
+      <%= link.key?(:id) ? "id=#{link[:id]}" : "" %>
+      href="#"
+    ><%= link[:text] %></a>
+  <% end %>
+  <a id="change-lang" href="#"><%= t('language.current') %></a>
+</div>
+
+<div class="fullscreen-container" id="lang-container">
+  <div class="popup-window">
+    <label for="show" class="close-btn fas fa-times"></label>
+    <h3><%= t('language.change') %></h3>
+    <% I18n.available_locales.each do |locale| %>
+      <% if I18n.locale == locale %>
+        <p><%= t("language.#{locale}") %></p>
+      <% else %>
+        <a href="#" data-locale="<%= locale %>"><%= t("language.#{locale}") %></a>
+      <% end %>
+    <% end %>
+  </div>
+</div>

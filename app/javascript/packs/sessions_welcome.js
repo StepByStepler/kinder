@@ -6,21 +6,13 @@ $(document).ready(() => {
     $(".a-register").click(() => {
         $("#login-container").css("display", "none");
         $("#register-container").css("display", "block");
-    })
-
-    $(".close-btn").click(() => {
-        $(".fullscreen-container").css("display", "none");
-    })
-
-    $("#change-lang").click(() => {
-        $("#lang-container").css("display", "block");
-    })
+    });
 
     $(".fullscreen-container").mousedown((e) => {
         if (e.target.classList.contains('fullscreen-container')) {
             $(".fullscreen-container").css("display", "none");
         }
-    })
+    });
 
     const loginForm = $("#login-form");
     loginForm.submit(() => {
@@ -40,12 +32,6 @@ $(document).ready(() => {
             }
         });
         return false;
-    });
-
-    $("a[data-locale]").click((event) => {
-        const locale = $(event.target).data("locale");
-        $.cookie("locale", locale);
-        document.location.reload();
     });
 
     const registerForm = $("#register-form");
@@ -70,6 +56,4 @@ $(document).ready(() => {
         });
         return false;
     });
-
-
 });
