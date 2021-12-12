@@ -10,7 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_10_191310) do
+ActiveRecord::Schema.define(version: 2021_12_12_092308) do
+
+  create_table "dialogs", force: :cascade do |t|
+    t.integer "user1"
+    t.integer "user2"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.integer "dialog"
+    t.integer "from"
+    t.string "text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reactions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "target_id"
+    t.boolean "is_like"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -20,6 +43,8 @@ ActiveRecord::Schema.define(version: 2021_12_10_191310) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "confirmation_token"
     t.boolean "email_confirmed"
+    t.integer "age"
+    t.text "description"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
