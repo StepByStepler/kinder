@@ -9,8 +9,13 @@ html, body {
     height: 100%;
 }
 
+.left-panel, .profile-wrapper, .right-panel {
+    display: inline-block;
+    vertical-align: top;
+    height: calc(100% - 50px);
+}
+
 .left-panel {
-    height: 100%;
     width: 25%;
     background-color: #ffffa7;
 }
@@ -27,6 +32,7 @@ html, body {
 
 .user-preview img {
     height: 70%;
+    max-width: 100%;
 }
 
 .choose-panel {
@@ -44,8 +50,32 @@ html, body {
     height: 75%;
 }
 
-.chats {
+.dialogs {
+    min-height: 70%;
     display: none;
+    overflow-y: auto;
+}
+
+.dialog {
+    width: 100%;
+    height: 5em;
+    border-bottom: 1px black solid;
+    text-overflow: ellipsis;
+}
+
+.dialog:hover {
+    background-color: #c7c755;
+    cursor: pointer;
+}
+
+.dialog div img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.dialog div {
+    display: inline-block;
+    vertical-align: top;
 }
 
 #update-profile-form {
@@ -56,4 +86,72 @@ html, body {
 
 #update-profile-form input[type="submit"] {
     align-self: center;
+}
+
+#update-profile-form div {
+    margin-top: 2%;
+}
+
+.textarea-parent {
+    width: 100%;
+    height: 15%;
+}
+
+#update-profile-form div textarea {
+    width: 80%;
+    height: 7em;
+    resize: none;
+}
+
+.center-div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.other-profile {
+    width: 15%;
+    padding: 0.2%;
+    border: 1px solid dodgerblue;
+    border-radius: 10px;
+}
+
+.other-profile img {
+    width: 100%;
+    height: auto;
+}
+
+.other-profile {
+    text-align: center;
+}
+
+.other-profile button:last-child {
+    margin-left: 5%;
+}
+
+.profile-wrapper {
+    width: 40%;
+}
+
+.right-panel {
+    width: 34%;
+}
+
+.dialog-wrapper {
+    width: 70%;
+    height: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.messages {
+    width: 100%;
+    height: 80%;
+    border: 1px solid black;
+    border-radius: 10px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
 }

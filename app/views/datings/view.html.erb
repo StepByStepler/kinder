@@ -3,25 +3,26 @@
 <%= #noinspection RailsParamDefResolve
     stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' %>
 <%= stylesheet_link_tag 'datings_view' %>
-<%= javascript_include_tag 'https://code.jquery.com/jquery-3.6.0.min.js' %>
-<%= javascript_pack_tag 'application' %>
 <%= javascript_pack_tag 'datings_view' %>
+
+<% @panel_links = [
+  { id: 'quit', text: t('session.logout') }
+] %>
+<%= render 'layouts/header' %>
 
 <div class="left-panel">
   <div class="user-preview">
-    <p><%= @current_user.name %></p>
+    <% age = @current_user.age %>
+    <% age_part = age ? ", #{age}" : '' %>
+    <p><%= "#{@current_user.name}#{age_part}" %></p>
     <% relative_image_path = "/images/profiles/#{@current_user.id}.png" %>
-    <% resource_path = File.join('images', 'profiles', "#{@current_user.id}.png") %>
-    <% file_path = File.join('public', resource_path) %>
-    <% puts resource_path %>
-    <% puts File.exist?(file_path) %>
-    <% image_path = File.exist?(file_path) ? relative_image_path : '/images/profiles/empty.png' %>
+    <% image_path = @current_user.profile_pic? ? relative_image_path : '/images/profiles/empty.png' %>
     <img src="<%= image_path %>" alt="User picture">
   </div>
 
   <div class="choose-panel">
     <a href="#" id="choose-profile"><%= t('dating.profile') %></a>
-    <a href="#" id="choose-chats"><%= t('dating.chats') %></a>
+    <a href="#" id="choose-dialogs"><%= t('dating.chats') %></a>
   </div>
 
   <div class="profile">
@@ -33,14 +34,34 @@
       <br>
       <div>
         <%= label_tag t('dating.name') %>
-        <%= text_field_tag :name %>
+        <%= text_field_tag :name, @current_user.name %>
+      </div>
+      <div>
+        <%= label_tag t('dating.age') %>
+        <%= number_field_tag :age, @current_user.age %>
+      </div>
+      <div class="textarea-parent">
+        <%= label_tag t('dating.description') %>
+        <%= text_area_tag :description, @current_user.description %>
       </div>
       <br>
       <%= submit_tag t('dating.save_changes') %>
     <% end %>
   </div>
 
-  <div class="chats">
+  <div class="dialogs">
 
   </div>
 </div>
+
+<div class="profile-wrapper"></div>
+
+<div class="right-panel">
+  <div class="dialog-wrapper">
+
+  </div>
+</div>
+
+<script type="text/javascript">
+    window.I18n = <%= I18n.backend.send(:translations)[I18n.locale].to_json.html_safe %>
+</script>
