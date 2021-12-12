@@ -3,12 +3,12 @@
 <%= #noinspection RailsParamDefResolve
     stylesheet_link_tag 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' %>
 <%= stylesheet_link_tag 'datings_view' %>
-<%= javascript_pack_tag 'datings_view' %>
 
 <% @panel_links = [
-  { id: 'quit', text: t('session.logout') }
+  { id: 'quit', text: t('session.logout'), href: '/sessions/exit' }
 ] %>
 <%= render 'layouts/header' %>
+<%= javascript_pack_tag 'datings_view' %>
 
 <div class="left-panel">
   <div class="user-preview">

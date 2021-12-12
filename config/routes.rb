@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/login'
   get 'sessions/register'
   get 'sessions/confirm'
+  get 'sessions/exit'
   get 'datings/view'
   post 'datings/update'
   get 'datings/random-profile', to: DatingsController.action(:random_profile)

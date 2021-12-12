@@ -10,7 +10,7 @@
     <a
       <%= link.key?(:class) ? "class=#{link[:class]} " : "" %>
       <%= link.key?(:id) ? "id=#{link[:id]}" : "" %>
-      href="#"
+      href=<%= link.fetch(:href, '#') %>
     ><%= link[:text] %></a>
   <% end %>
   <a id="change-lang" href="#"><%= t('language.current') %></a>
