@@ -50,6 +50,7 @@ en:
         text: Thanks for registering! To confirm your registration click the URL below
         success: Your email is confirmed! Please log in to continue
         error: User not found
+    logout: Log out
   language:
     current: English
     change: Change language
@@ -60,4 +61,8 @@ en:
     chats: Chats
     image: Profile image
     name: Name
+    age: Age
+    description: Description
     save_changes: Сохранить изменения
+    like: Like
+    dislike: Dislike
