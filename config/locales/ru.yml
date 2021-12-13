@@ -32,6 +32,7 @@ ru:
     messages:
       invalid: имеет неверный формат
       blank: является обязательным параметром
+      taken: уже кем-то используется
   activerecord:
     attributes:
       user:
