@@ -49,6 +49,7 @@ class DatingsController < ApplicationController
       Reaction.create(user_id: @current_user.id, target_id: target_id, is_like: is_like)
     end
     check_likes @current_user.id, target_id
+    respond :ok, ''
   end
 
   def check_likes(current_user_id, target_id)
