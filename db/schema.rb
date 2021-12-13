@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_12_12_092308) do
     t.string "confirmation_token"
     t.boolean "email_confirmed"
     t.integer "age"
-    t.text "description"
+    t.text "description", default: ""
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
