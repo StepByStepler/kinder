@@ -38,5 +38,8 @@ module Kinder
     I18n.available_locales = [:en, :ru]
     config.i18n.default_locale = :ru
     config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    config.lograge.enabled = true
+    config.lograge.ignore_actions = %w[DatingsController#dialogs DatingsController#messages]
+    config.log_level = :info
   end
 end

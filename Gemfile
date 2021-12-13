@@ -37,6 +37,8 @@ gem "jquery", "~> 0.0.1"
 
 gem "faker", "~> 2.19.0"
 
+gem "lograge", "~> 0.11.2"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

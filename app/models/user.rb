@@ -19,8 +19,6 @@ class User < ApplicationRecord
   def profile_pic?
     resource_path = File.join('images', 'profiles', "#{id}.png")
     file_path = File.join('public', resource_path)
-    puts File.join('public', resource_path)
-    puts File.exist? file_path
     File.exist? file_path
   end
 
