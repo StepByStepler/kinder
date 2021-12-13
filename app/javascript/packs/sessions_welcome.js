@@ -48,9 +48,11 @@ $(document).ready(() => {
                     });
                 },
                 401: (data) => {
-                    iziToast().error({
-                        title: data.responseText
-                    });
+                    for (const error of JSON.parse(data.responseText)) {
+                        iziToast().error({
+                            title: error
+                        });
+                    }
                 }
             }
         });

@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   has_secure_password
 
+  validates_presence_of :name, :email
   validates_uniqueness_of :email
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :age, numericality: { greater_than_or_equal_to: 1 }, allow_nil: true

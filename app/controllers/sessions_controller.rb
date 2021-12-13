@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
       ConfirmationMailer.with(user: @user).confirmation.deliver_now
       respond :ok, t('session.login.not_confirmed')
     else
-      respond :unauthorized, @user.errors.first.full_message
+      respond_json :unauthorized, @user.errors.map(&:full_message)
     end
   end
 
