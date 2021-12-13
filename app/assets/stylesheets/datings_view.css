@@ -103,6 +103,11 @@ html, body {
     resize: none;
 }
 
+#generate-user-btn {
+    display: block;
+    margin: 5% auto auto;
+}
+
 .center-div {
     position: absolute;
     top: 50%;

@@ -39,6 +39,13 @@ $(document).ready(() => {
         return false;
     });
 
+    $("#generate-user-btn").click(() => {
+        $.ajax({
+            method: "GET",
+            url: "/admin/generate-user",
+        });
+    });
+
     loadNewProfile();
 
     loadDialogList();
