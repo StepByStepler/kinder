@@ -42,7 +42,7 @@ $(document).ready(() => {
     $("#generate-user-btn").click(() => {
         $.ajax({
             method: "GET",
-            url: "/admin/generate-user",
+            url: "/admin/generate_user",
         });
     });
 
@@ -72,7 +72,7 @@ function enableBlock(block) {
 function loadNewProfile() {
     $.ajax({
         method: "GET",
-        url: "/datings/random-profile",
+        url: "/datings/random_profile",
         statusCode: {
             200: data => changeFoundProfile(JSON.parse(data))
         }
@@ -106,7 +106,7 @@ function changeFoundProfile(user) {
 function saveProfileReaction(user, isLike) {
     $.ajax({
         method: "GET",
-        url: "/datings/save-reaction",
+        url: "/datings/save_reaction",
         data: {
             user_id: user.id,
             is_like: isLike
@@ -220,7 +220,7 @@ function sendMessage() {
 
     $.ajax({
         method: "GET",
-        url: "/datings/send-message",
+        url: "/datings/send_message",
         data: {
             dialog: currentDialogID,
             text: text,
