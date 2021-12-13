@@ -28,9 +28,16 @@ ru:
     change: Сменить язык
     ru: Русский
     en: Английский
+  errors:
+    messages:
+      invalid: имеет неверный формат
+      blank: является обязательным параметром
   activerecord:
     attributes:
       user:
+        name: Имя
+        email: Почта
+        password: Пароль
         password_confirmation: Подтвержденный пароль
     errors:
       models:
