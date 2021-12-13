@@ -76,17 +76,7 @@ class DatingsController < ApplicationController
 
   def dialogs
     user_id = @current_user.id
-    dialogs = Dialog.where(user1: user_id).or(Dialog.where(user2: user_id)).to_a.map do |dialog|
-      other_user_id = dialog.user1 == user_id ? dialog.user2 : dialog.user1
-      other_user = User.find_by_id(other_user_id)
-      {
-        id: dialog.id,
-        user_id: other_user_id,
-        name: other_user.name,
-        last_message: Message.where(dialog: dialog.id).last.text,
-        has_pic: other_user.profile_pic?
-      }
-    end
+    dialogs = Dialog.where(user1: user_id).or(Dialog.where(user2: user_id)).to_a.map { |d| dialog_to_hash d, user_id }
     respond_json :ok, dialogs
   end
 
@@ -96,12 +86,26 @@ class DatingsController < ApplicationController
     dialog = Dialog.find_by_id dialog_id
     return unless [dialog&.user1, dialog&.user2].include?(user_id)
 
-    messages = Message.where(dialog: dialog_id).to_a.map do |message|
-      {
-        is_own: message.from == user_id,
-        text: message.text
-      }
-    end
+    messages = Message.where(dialog: dialog_id).to_a.map { |msg| message_to_hash msg, user_id }
     respond_json :ok, messages
+  end
+
+  def dialog_to_hash(dialog, user_id)
+    other_user_id = dialog.user1 == user_id ? dialog.user2 : dialog.user1
+    other_user = User.find_by_id(other_user_id)
+    {
+      id: dialog.id,
+      user_id: other_user_id,
+      name: other_user.name,
+      last_message: Message.where(dialog: dialog.id).last.text,
+      has_pic: other_user.profile_pic?
+    }
+  end
+
+  def message_to_hash(message, user_id)
+    {
+      is_own: message.from == user_id,
+      text: message.text
+    }
   end
 end
