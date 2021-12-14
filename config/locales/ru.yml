@@ -33,6 +33,8 @@ ru:
       invalid: имеет неверный формат
       blank: является обязательным параметром
       taken: уже кем-то используется
+      too_long:
+        other: имеет слишком большую длину
   activerecord:
     attributes:
       user:
