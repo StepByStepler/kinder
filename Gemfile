@@ -39,6 +39,8 @@ gem "faker", "~> 2.19.0"
 
 gem "lograge", "~> 0.11.2"
 
+gem "ffi", "~> 1.15.4"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -73,3 +75,9 @@ group :development do
   # gem "spring"
 end
 
+group :test do
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  gem "capybara", ">= 3.26"
+  gem "selenium-webdriver"
+  gem "webdrivers"
+end

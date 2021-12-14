@@ -29,7 +29,7 @@ $(document).ready(() => {
                 200: () => {
                     document.location.reload();
                 },
-                401: (data) => {
+                400: (data) => {
                     iziToast().error({
                         title: data.responseText
                     });

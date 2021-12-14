@@ -11,7 +11,7 @@ class AdminController < ApplicationController
 
   def generate_user
     name = Faker::Name.name
-    email = Faker::Internet.email
+    email = "#{(Time.now.to_f.round(3) * 1000).to_i}@gmail.com"
     password = SecureRandom.urlsafe_base64.to_s
     age = rand(16..40)
     user = User.create(

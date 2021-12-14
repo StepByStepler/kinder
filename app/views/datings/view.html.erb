@@ -45,7 +45,7 @@
         <%= text_area_tag :description, @current_user.description %>
       </div>
       <br>
-      <%= submit_tag t('dating.save_changes'), class: 'btn btn-primary' %>
+      <%= submit_tag t('dating.save_changes'), class: 'btn btn-primary', id: 'submit-profile-btn' %>
     <% end %>
     <% if @current_user.is_admin %>
       <%= button_tag t('dating.generate_user'), id: 'generate-user-btn', class: 'btn btn-info'  %>

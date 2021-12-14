@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   end
 
   def login
-    user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(params[:email].downcase, params[:password])
     if user.nil?
       respond :unauthorized, t('session.login.wrong_password')
     elsif !user.email_confirmed
@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
 
   def register
     @user = User.new(user_params)
+    @user.email.downcase!
 
     if @user.save
       ConfirmationMailer.with(user: @user).confirmation.deliver_now

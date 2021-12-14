@@ -15,7 +15,7 @@ class DatingsController < ApplicationController
     params = update_params
     @current_user.update(params.except(:profile_pic))
     unless @current_user.save
-      respond :bad_request, @user.errors.first.full_message
+      respond :bad_request, @current_user.errors.first.full_message
       return
     end
 
@@ -34,6 +34,12 @@ class DatingsController < ApplicationController
 
   def random_profile
     user = User.where(USER_QUERY, @current_user.id).order(Arel.sql('RANDOM()')).first
+    if user.nil?
+      respond :bad_request, ''
+      return
+    end
+
+    respond :bad_request, '' if user.nil?
     json = user.as_json(only: %i[id name age description]).merge({ 'has_pic' => user.profile_pic? })
     respond_json :ok, json
   end
@@ -98,7 +104,7 @@ class DatingsController < ApplicationController
       id: dialog.id,
       user_id: other_user_id,
       name: other_user.name,
-      last_message: Message.where(dialog: dialog.id).last.text,
+      last_message: Message.where(dialog: dialog.id).last&.text || '',
       has_pic: other_user.profile_pic?
     }
   end
