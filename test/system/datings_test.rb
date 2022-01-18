@@ -5,6 +5,7 @@ class DatingsTest < ApplicationSystemTestCase
     @driver = Capybara.current_session.driver.browser
   end
 
+  # проверка того, что пользователь успешно проходит аутентификацию, после чего попадает на страницу знакомств
   test 'check that datings app works via selenium' do
     User.create(
       name: 'name', email: 'grigorypanko@gmail.com', password: 'secret',

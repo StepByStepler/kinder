@@ -23,14 +23,17 @@ class DatingsControllerTest < ActionDispatch::IntegrationTest
     assert_select 'button', id: 'generate-user-btn', count: buttons_count
   end
 
+  # проверка того, что кнопка генерации пользователя показывается администраторам
   test 'should show generate user button for admin' do
     generate_user_button_test true
   end
 
+  # проверка того, что кнопка генерации пользователя не показывается обычным пользователям
   test 'should not show generate user button for non-admin' do
     generate_user_button_test false
   end
 
+  # проверка того, что реакция сохраняется в базу данных
   test 'should save user reaction on somebody profile' do
     user = login_with_user 'test-user'
     target_user = get_user 'target-user'
@@ -42,6 +45,7 @@ class DatingsControllerTest < ActionDispatch::IntegrationTest
     assert reaction.is_like
   end
 
+  # проверка того, что после взаимных лайков создается диалог между двумя пользователями
   test 'should create dialog after mutual likes' do
     user1 = login_with_user 'user1'
     user2 = get_user 'user2'
